@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-2</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 2</h1>
+	<p>З клавіатури вводиться число. Знаходити суму цифр до тих пір. Поки сума не стане більшую за 20.</p>
+		<script>
+		let inputNumber = prompt('Введіть число:');
+		let sum = 0;
+
+		while (sum <= 20) {
+    for (let digit of inputNumber) {
+        sum += parseInt(digit);
+    }
+
+    if (sum <= 20) {
+        console.log(`Поточна сума цифр: ${sum}`);
+        inputNumber = prompt('Введіть число:');
+    }
+}
+
+	console.log('Сума цифр перевищила 20. Завершено.');
+	</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-1</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 1</h1>
+	<p>З клавіатури вводитяться числа поки не буде введено 0. Знайти суму чисел.</p>
+	<script>		
+		let sumOfNumb = 0
+		while  (true) {
+			let numbers = parseInt(prompt(`Введіть число`))
+			if (numbers === 0) break
+			sumOfNumb += numbers 
+		}
+		document.write(`Сума чисел: ${sumOfNumb}`)
+		
+	</script>
+</div>
+</body>
+</html>
