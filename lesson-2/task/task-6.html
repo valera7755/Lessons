@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-6</title>
+</head>
+<body>
+	<h1>Задача 6</h1>
+	<p>Задача 6. З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.	</p>
+	<script>
+		 // Отримання вартості та кількості товарів від користувача
+		 let price1 = parseFloat(prompt(`Введіть вартість першого товару`))
+		 let quantity1 = parseInt(prompt(`Введіть кількість першого товару`))
+
+		 let price2 = parseFloat(prompt(`Введіть вартість другого товару`))
+		 let quantity2 = parseInt(prompt(`Введіть кількість другого товару`))
+
+		 let price3 = parseFloat(prompt(`Введіть вартість третього товару`))
+		 let quantity3 = parseInt(prompt(`Введіть кількість третього товару`))
+
+		 // Обчислення вартості кожного товару та загальної вартості
+		 let totalCost1 = price1 * quantity1
+		 let totalCost2 = price2 * quantity2
+		 let totalCost3 = price3 * quantity3
+
+		 let grandTotal = totalCost1 + totalCost2 + totalCost3
+
+		 // Виведення чеку у вигляді елементів розмітки
+		 document.write(`<h2>Чек</h2>`)
+		 document.write(`<ul>`)
+
+		document.write(`<li>Тунець консервований: ${price1.toFixed(2)} грн x ${quantity1} шт. = ${totalCost1.toFixed(2)} грн</li>`)
+		document.write(`<li>Хліб: ${price2.toFixed(2)} грн x ${quantity2} шт. = ${totalCost2.toFixed(2)} грн</li>`)
+		document.write(`<li>Пачка Рису 1кг: ${price3.toFixed(2)} грн x ${quantity3} шт. = ${totalCost3.toFixed(2)} грн</li><br>`)
+
+		document.write(`</ul`)
+		document.write(`<p><strong> Загальна вартість: ${grandTotal.toFixed(2)} грн</strong></p>`)
+
+	</script>
+</body>
+</html>
