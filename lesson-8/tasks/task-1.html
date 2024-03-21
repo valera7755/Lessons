@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-1</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 1</h1>
+	<p>Задача 1. Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).<br></p>
+
+	<script>
+		function getMinScore(scoresList) {
+		let min = scoresList[0];
+		for (let i = 1; i < scoresList.length; i++) {
+			if (scoresList[i] < min) min = scoresList[i];
+		}
+		return min;
+	}
+
+	function getCategoryByMinScore(minScore) {
+		let category;
+		switch (minScore) {
+			case 5:
+					category = 'Відмінник';
+					break;
+			case 4:
+					category = 'Хорошист';
+					break;
+			case 3:
+					category = 'Трійочник';
+					break;
+			default:
+					category = 'Двійочник';
+					break;
+		}
+		return category;
+	}
+
+	function getStudentCategory(scoresList) {
+		const minScore = getMinScore(scoresList);
+		let category = getCategoryByMinScore(minScore);
+		return category;
+	}
+
+	const possibleRatings = [4, 5, 3, 4, 5];
+	const studentCategory = getStudentCategory(possibleRatings);
+
+	document.write(`Студент належить до категорії: ${studentCategory}`);
+</script>
+</div>
+</body>
+</html>

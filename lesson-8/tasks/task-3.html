@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-1</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 1</h1>
+	<p>Задача 7. Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:<br>
+		1.за весь рік;<br>
+		2.у першій половині року;<br>
+		3.у другій половині року;<br>
+		4.за літо;<br>
+		5.за ІІ квартал;<br>
+		6.за парні місяці (з парними номерами);<br>
+		7.за місяці, які є початковими у сезоні (весна, літо, осінь, зима).<br>
+		<br></p>
+
+<script>
+	//Відтворив з урока
+			const paymentsList = [
+        1200, 1250, 1180, 1300, 1220, 1280, 1235, 1270, 1215, 1290, 1245, 1265,]
+		  function getPaymentsSumInRange(paymentsList, startMonth, endMonth, step = 1){
+			let sum = 0
+			for (let m = startMonth-1; m < endMonth; m+=step) {
+				sum+=paymentsList[m]
+			}
+			return sum
+		  }
+		  //за весь рік;
+		  const sumPerYear = getPaymentsSumInRange(paymentsList,1,12)
+		  //у першій половині року;
+		  const sumPerFirstHalfOfYear = getPaymentsSumInRange(paymentsList,1,6)
+		  //за літо;
+		  const sumPerSummer = getPaymentsSumInRange(paymentsList,6,8)
+		  //за ІІ квартал;
+		  const sumPerSecondQuartal = getPaymentsSumInRange(paymentsList,4,6)
+		  //за парні місяці (з парними номерами);
+		  const sumPerEvenMonth = getPaymentsSumInRange(paymentsList,2,12,2)
+		  //за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+		  const sumPerSeasonsStart = getPaymentsSumInRange(paymentsList,3,12,3)
+
+		  document.write(`<p>Сума всіх платежів за весь рік: ${sumPerYear}</p>`);
+        document.write(`<p>Сума платежів за першу половину року: ${sumPerFirstHalfOfYear}</p>`);
+        document.write(`<p>Сума платежів за літо: ${sumPerSummer}</p>`);
+        document.write(`<p>Сума платежів за ІІ квартал: ${sumPerSecondQuartal}</p>`);
+        document.write(`<p>Сума платежів за парні місяці: ${sumPerEvenMonth}</p>`);
+        document.write(`<p>Сума платежів за місяці, які є початковими у сезоні: ${sumPerSeasonsStart}</p>`);
+</script>
+</div>
+</body>
+</html>

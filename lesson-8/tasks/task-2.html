@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-1</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 3</h1>
+	<p>Задача 3. Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».<br></p>
+
+<script>
+	const studentNames = ['Іван', 'Марія', 'Іван', 'Петро', 'Іван', 'Олена']
+	const targetName = 'Іван'
+	const occurrences = studentNames.filter(name => name === targetName).length
+	document.write(`Ім'я ${targetName} зустрічається ${occurrences} разів.`);
+</script>
+</div>
+</body>
+</html>

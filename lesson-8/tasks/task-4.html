@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-1</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 6</h1>
+	<p>Задача 6. Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається)<br><br></p>
+
+<script>
+	const products = ['Яблука', 'Банани', 'Помідори', 'Апельсини'];
+	const prices = [15, 25, 10, 40];
+	const availableMoney = 30;
+	document.write('<p>Товари, які можна собі дозволити:</p>')
+
+	for (let i = 0; i < products.length; i++) {
+		if(prices[i] <= availableMoney) {
+			document.write(`<p>${products[i]} - ${prices[i]} грн</p>`)
+		}
+	}
+</script>
+</div>
+</body>
+</html>
