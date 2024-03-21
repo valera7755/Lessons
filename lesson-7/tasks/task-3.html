@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>Task-3</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Задача 8</h1>
+		<p> Створити функцію, яка виводить банер у функцію передаються: зображення, заголовок та посилання, куди переходимо при кліку на зображення тег img повине знаходитись у середині тега a: a img src шлях a </p>
+	<script>
+		function creatBanner (imgPath, title, link) {
+			document.write('<div>')
+			document.write(`<a href ="${link}">`)
+			document.write(`<img src = "${imgPath}">`)
+			document.write(`<div>${title}</div>`)
+			document.write('</a>')
+			document.write('</div>')
+		}
+		creatBanner('https://www.cossa.ru/upload/medialibrary/05d/image6.jpg', 'Advertising', 'https://fonts.google.com/')
+	</script>
+</body>
+</html>
