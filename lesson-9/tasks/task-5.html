@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-5</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 5 </h1>
+	<p>Дано масив елементів. Знайти добуток додатних елементів<br></p>
+
+<script>
+		const array = [5, -10, 15, -20, 25];
+		let productOfPositives = 1;
+
+		// Використовуємо forEach() для ітерації по елементам масиву
+		array.forEach(element => {
+			if (element > 0) {
+				productOfPositives *= element; // Множимо додатні елементи
+			}
+		});
+
+		document.write(productOfPositives); // Виведе: 1875 (5 * 15 * 25)
+</script>
+</div>
+</body>
+</html>

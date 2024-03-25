@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-4</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 6 </h1>
+	<p>Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2<br></p>
+
+<script>
+	const array = [5, 10, 15, 20, 25]
+	// Першим елементом масиву буде array[0]
+	const firsElement = array[0]
+
+	// Використовуємо цикл for для ітерації по елементах масиву, починаючи з індексу 1
+	for (let i = 1; i < array.length; i++) {
+		if (array[i] > firsElement) {
+			array[i] *=2 // Помножуємо елемент на 2, якщо він більший за перший елемент
+		}
+	}
+	document.write(array)
+</script>
+</div>
+</body>
+</html>
