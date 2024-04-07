@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../../style.css">
+	<link rel="stylesheet" href="../../reset.css">
+	<title>task-1</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Задача 11 </h1>
+	<p>Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000):<br>
+		11.Знайти індекс першої ціни, що більше за 1000
+		<br></p>
+
+<script>
+	//  Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000):
+	let pricesSecuritiesList = []
+		let numberPrices = parseInt(prompt('Введіть кількість цінних паперів'))
+		for (let i = 0; i < numberPrices; i++) {
+			pricesSecuritiesList.push(1 + Math.floor(Math.random() * 10000))	
+		}
+		document.write(`Сгенерований масив цінних паперів <br> ${pricesSecuritiesList}<br>`)
+		//  11)Знайти індекс першої ціни, що більше за 1000
+		let res = pricesSecuritiesList.findIndex((el) => el > 1000)
+		document.write(`Знайти індекс першої ціни, що більше за 1000<br> ${res}<br>`)
+		
+		
+</script>
+</div>
+</body>
+</html>
