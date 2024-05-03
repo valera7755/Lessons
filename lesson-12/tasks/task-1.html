@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task-1</title>
+</head>
+<body>
+	<h1>Задача 1</h1>
+	<p>
+		Задача 1. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів та порівнянь чисел під час сортування бульбашкою<br>
+	</p>
+	<script>	
+		// Функція для сортування масиву методом бульбашки та підрахунку обмінів та порівнянь
+			function bubbleSortWithCounting(array) {
+				let comparisons = 0;
+				let swaps = 0;
+				const n = array.length;
+				let swapped;
+				do {
+					swapped = false;
+					for (let i = 0; i < n - 1; i++) {
+							comparisons++;
+							if (array[i] > array[i + 1]) {
+								// Обмін елементів
+								const temp = array[i];
+								array[i] = array[i + 1];
+								array[i + 1] = temp;
+								swaps++;
+								swapped = true;
+							}
+					}
+				} while (swapped);
+				return { comparisons, swaps };
+			}
+
+			// Генеруємо масив 30 випадкових цілих чисел
+			const array = [];
+			for (let i = 0; i < 30; i++) {
+				array.push(Math.floor(Math.random() * 100));
+			}
+
+			// Виконуємо сортування та підраховуємо обміни та порівняння
+			const { comparisons, swaps } = bubbleSortWithCounting(array);
+
+			// Виводимо результат
+			document.write("Кількість порівнянь: " + comparisons + "<br>");
+			document.write("Кількість обмінів: " + swaps + "<br>");
+			document.write("Масив: " + array.join(", ") + "<br>");
+
+		
+	</script>
+</body>
+</html>

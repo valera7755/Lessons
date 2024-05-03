@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task-1</title>
+</head>
+<body>
+	<h1>Задача 4</h1>
+	<p>
+		Задача 4. Для розглянутих методів сортування спробувати вивести етапи сортування шляхом виведення відповідних таблиць за зразком <br>
+	</p>
+	<script>	
+function bubbleSortWithSteps(array) {
+    const steps = [];
+    const n = array.length;
+    let swapped;
+
+    do {
+        swapped = false;
+        for (let i = 0; i < n - 1; i++) {
+            if (array[i] > array[i + 1]) {
+               
+                const temp = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = temp;
+                swapped = true;
+            }
+            steps.push(array.slice()); 
+        }
+    } while (swapped);
+
+    return steps;
+}
+
+
+function mergeSortWithSteps(array) {
+    const steps = [];
+
+ 
+    function mergeSort(arr) {
+        const len = arr.length;
+        if (len <= 1) {
+            return arr;
+        }
+        
+        const mid = Math.floor(len / 2);
+        const left = arr.slice(0, mid);
+        const right = arr.slice(mid);
+        
+        const sortedLeft = mergeSort(left);
+        const sortedRight = mergeSort(right);
+        const merged = merge(sortedLeft, sortedRight);
+
+        steps.push(merged.slice()); 
+        return merged;
+    }
+
+    
+    function merge(left, right) {
+        const result = [];
+        let leftIndex = 0;
+        let rightIndex = 0;
+
+        while (leftIndex < left.length && rightIndex < right.length) {
+            if (left[leftIndex] < right[rightIndex]) {
+                result.push(left[leftIndex]);
+                leftIndex++;
+            } else {
+                result.push(right[rightIndex]);
+                rightIndex++;
+            }
+        }
+
+        return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+    }
+
+    mergeSort(array);
+    return steps;
+}
+
+
+function insertionSortWithSteps(array) {
+    const steps = [];
+
+    const n = array.length;
+    for (let i = 1; i < n; i++) {
+        let current = array[i];
+        let j = i - 1;
+        while (j >= 0 && array[j] > current) {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = current;
+        steps.push(array.slice()); 
+    }
+
+    return steps;
+}
+
+
+const array = [];
+for (let i = 0; i < 10; i++) {
+    array.push(Math.floor(Math.random() * 100));
+}
+
+
+const bubbleSortSteps = bubbleSortWithSteps(array);
+const mergeSortSteps = mergeSortWithSteps(array);
+const insertionSortSteps = insertionSortWithSteps(array);
+
+
+function displaySteps(steps, sortType) {
+    document.write(`<h3>Метод сортування: ${sortType}</h3>`);
+    document.write("<table border='1'>");
+    document.write("<tr><th>Крок</th><th>Масив</th></tr>");
+    for (let i = 0; i < steps.length; i++) {
+        document.write("<tr>");
+        document.write("<td>" + (i + 1) + "</td>");
+        document.write("<td>" + steps[i].join(", ") + "</td>");
+        document.write("</tr>");
+    }
+    document.write("</table>");
+}
+
+
+displaySteps(bubbleSortSteps, "Сортування бульбашкою");
+displaySteps(mergeSortSteps, "Сортування змішуванням");
+displaySteps(insertionSortSteps, "Сортування включеннями");
+</script>
+</body>
+</html>

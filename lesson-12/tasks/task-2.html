@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task-1</title>
+</head>
+<body>
+	<h1>Задача 2</h1>
+	<p>
+		Задача 2. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів та порівнянь чисел під час сортування змішуванням.<br>
+	</p>
+	<script>	
+	
+	
+function mergeSortWithCounting(array) {
+    let comparisons = 0;
+    let swaps = 0;
+
+   
+    function mergeSort(arr) {
+        const len = arr.length;
+        if (len <= 1) {
+            return;
+        }
+        
+        const mid = Math.floor(len / 2);
+        const left = arr.slice(0, mid);
+        const right = arr.slice(mid);
+        
+        mergeSort(left);
+        mergeSort(right);
+        merge(left, right, arr);
+    }
+
+    
+    function merge(left, right, arr) {
+        let leftIndex = 0;
+        let rightIndex = 0;
+        let arrIndex = 0;
+
+        while (leftIndex < left.length && rightIndex < right.length) {
+            comparisons++;
+            if (left[leftIndex] < right[rightIndex]) {
+                arr[arrIndex] = left[leftIndex];
+                leftIndex++;
+            } else {
+                arr[arrIndex] = right[rightIndex];
+                rightIndex++;
+            }
+            arrIndex++;
+        }
+
+        swaps += left.length + right.length - arrIndex;
+
+        while (leftIndex < left.length) {
+            arr[arrIndex] = left[leftIndex];
+            leftIndex++;
+            arrIndex++;
+        }
+
+        while (rightIndex < right.length) {
+            arr[arrIndex] = right[rightIndex];
+            rightIndex++;
+            arrIndex++;
+        }
+    }
+
+    mergeSort(array);
+    return { comparisons, swaps };
+}
+
+
+	const array = [];
+	for (let i = 0; i < 30; i++) {
+		array.push(Math.floor(Math.random() * 100));
+	}
+
+	
+	const { comparisons, swaps } = mergeSortWithCounting(array);
+
+	
+	document.write("Кількість порівнянь: " + comparisons + "<br>");
+	document.write("Кількість обмінів: " + swaps + "<br>");
+	document.write("Масив: " + array.join(", ") + "<br>");
+		
+	</script>
+</body>
+</html>

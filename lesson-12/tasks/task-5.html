@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task-1</title>
+</head>
+<body>
+	<h1>Задача 5</h1>
+	<p>
+		Задача 5. Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я «Olga» і під яким індексом. <br>
+	</p>
+	<script>	
+
+function sortArray(array) {
+    return array.sort();
+}
+
+
+function binarySearch(array, target) {
+    let left = 0;
+    let right = array.length - 1;
+
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (array[mid] === target) {
+            return mid;
+        } else if (array[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1; 
+}
+
+
+const names = ["Anna", "Olesya", "Ivan", "Maria", "Olga", "Vasyl"];
+document.write("<p>Масив імен:</p>");
+document.write("<p>" + names.join(", ") + "</p>");
+
+
+const sortedNames = sortArray(names);
+
+const olgaIndex = binarySearch(sortedNames, "Olga");
+
+if (olgaIndex !== -1) {
+    document.write("Ім'я 'Olga' знаходиться під індексом: " + olgaIndex);
+} else {
+    document.write("Ім'я 'Olga' не знайдено в масиві.");
+}
+</script>
+</body>
+</html>
